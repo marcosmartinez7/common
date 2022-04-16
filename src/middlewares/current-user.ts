@@ -19,7 +19,10 @@ export const currentUser = (
   res: Response,
   next: NextFunction
 ) => {
+  console.log("Current user");
   if (!req.session?.jwt) {
+    console.log("Current user no jwt");
+
     return next();
   }
 
@@ -29,6 +32,8 @@ export const currentUser = (
       process.env.JWT_KEY!
     ) as UserPayload;
     req.currentUser = payload;
-  } catch (err) {}
+  } catch (err) {
+    console.log("Current user error", err);
+  }
   next();
 };

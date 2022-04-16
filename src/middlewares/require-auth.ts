@@ -7,6 +7,7 @@ export const requireAuth = (
   next: NextFunction
 ) => {
   if (!req.currentUser) {
+    console.log("The req", req);
     throw new UnauthorizedError();
   }
   next();
