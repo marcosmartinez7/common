@@ -20,7 +20,7 @@ export const currentUser = (
   next: NextFunction
 ) => {
   if (!req.session?.jwt) {
-    console.log("Current user no jwt");
+    console.log("Current user has no jwt");
     return next();
   }
 
